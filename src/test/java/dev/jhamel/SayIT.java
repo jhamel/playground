@@ -10,7 +10,7 @@ public class SayIT {
     @Test
     public void testSay(){
         Say say = new Say();
-        assertEquals(say.say(), "Hello World");
+        assertEquals(say.say(), "Hello World!");
 
     }
 
