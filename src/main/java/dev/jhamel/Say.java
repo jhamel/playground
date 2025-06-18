@@ -6,4 +6,10 @@ public class Say {
     public String say() {
         return HELLO_WORLD;
     }
+    public String name(){
+        return null;
+    }
+    public void printName(){
+        System.out.println(name().toUpperCase());
+    }
 }
