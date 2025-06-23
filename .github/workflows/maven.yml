@@ -30,4 +30,4 @@ jobs:
     - name: Write file
       run: echo "Hello" >> ${HOME}/hello.txt
     - name: Read file
-      run: echo  ${HOME}/hello.txt
+      run: cat  ${HOME}/hello.txt
