@@ -27,3 +27,7 @@ jobs:
     - uses: jwgmeligmeyling/checkstyle-github-action@master
       with:
         path: '**/checkstyle-result.xml'
+    - name: Write file
+      run: echo "Hello" >> ${HOME}/hello.txt
+    - name: Read file
+      run: echo  ${HOME}/hello.txt
