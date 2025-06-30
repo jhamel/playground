@@ -10,12 +10,12 @@ jobs:
   build:
     strategy:
       matrix:
-        placeholder: ["a","b","c"]
+        placeholder: ["ls -all","ls","mvn version"]
     runs-on: ubuntu-latest
 
     steps:
      - name: The matrix
-       run: echo ${{ matrix.placeholder }}
+       run: cat ${{ matrix.placeholder }}
 #
 #    - uses: actions/checkout@v4
 #    - name: Set up JDK 17
