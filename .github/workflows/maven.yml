@@ -1,38 +1,40 @@
-name: Java CI with Maven
-on:
-#  workflow_dispatch:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
+name: Run tests and publish report
+on: [push]
 jobs:
-  build:
-    strategy:
-      matrix:
-        placeholder: ["ls -all","ls","mvn version"]
+  test:
     runs-on: ubuntu-latest
-
     steps:
-     - name: The matrix
-       run:  ${{ matrix.placeholder }} | cat
-#
-#    - uses: actions/checkout@v4
-#    - name: Set up JDK 17
-#      uses: actions/setup-java@v4
-#      with:
-#        java-version: '17'
-#        distribution: 'temurin'
-#        cache: maven
-#    - name: Build with Maven
-#      run: mvn -B verify spotbugs:spotbugs checkstyle:checkstyle
-#    - uses: jwgmeligmeyling/spotbugs-github-action@master
-#      with:
-#        path: '**/spotbugsXml.xml'
-#    - uses: jwgmeligmeyling/checkstyle-github-action@master
-#      with:
-#        path: '**/checkstyle-result.xml'
-#    - name: Write file
-#      run: echo "Hello" >> ${HOME}/hello.txt
-#    - name: Read file
-#      run: cat  ${HOME}/hello.txt
+      - uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: zulu
+          java-version: 17
+
+      - name: Run tests
+        run: ./gradlew clean test
+
+      - name: Load test report history
+        uses: actions/checkout@v3
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Build test report
+        uses: simple-elf/allure-report-action@v1.7
+        if: always()
+        with:
+          gh_pages: gh-pages
+          allure_history: allure-history
+          allure_results: build/allure-results
+
+      - name: Publish test report
+        uses: peaceiris/actions-gh-pages@v3
+        if: always()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-history
