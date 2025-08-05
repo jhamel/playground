@@ -18,7 +18,7 @@ jobs:
             maven-version: 3.6.3
 
       - name: Run Test
-        run: ./mvnw verify
+        run: mvn verify
         continue-on-error: true
 
       - name: Setup Allure History
