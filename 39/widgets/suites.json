@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"cda1ca1bfaf516a35c26c8501fa9173b","name":"dev.jhamel.HelloWorld2Test","statistic":{"failed":1,"broken":0,"skipped":0,"passed":0,"unknown":0,"total":1}},{"uid":"8d14f7e05daac0336ad8616aeda40ad6","name":"dev.jhamel.HelloWorldTest","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}}]}
