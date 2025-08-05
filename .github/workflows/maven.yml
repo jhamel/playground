@@ -20,6 +20,7 @@ jobs:
       - name: Run tests
         run:  |
           mvn clean test
+          ls target
 
       - name: Load test report history
         uses: actions/checkout@v3
