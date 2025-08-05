@@ -9,6 +9,11 @@ public class HelloWorldTest {
 
     @Test
     public void testHelloWorld() {
-        assertEquals(2,2);
+        assertEquals(2, 2);
+    }
+
+    @Test
+    public void testHelloWorld2() {
+        assertEquals(1, 2);
     }
 }
