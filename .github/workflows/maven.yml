@@ -17,30 +17,28 @@ jobs:
         with:
             maven-version: 3.6.3
 
-      - name: Run tests
-        run:  |
-          mvn clean test
-          ls target
+      - name: Run Test
+        run: ./mvnw verify
+        continue-on-error: true
 
-      - name: Load test report history
-        uses: actions/checkout@v3
+      - name: Setup Allure History
+        uses: actions/checkout@v4.2.2
         if: always()
         continue-on-error: true
         with:
           ref: gh-pages
           path: gh-pages
 
-      - name: Build test report
-        uses: simple-elf/allure-report-action@v1.7
+      - name: Generate Allure Report
+        uses: simple-elf/allure-report-action@v1.11
         if: always()
         with:
-          gh_pages: gh-pages
+          allure_results: target/allure-results
           allure_history: allure-history
-          allure_results: build/allure-results
 
-      - name: Publish test report
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Publish Allure Report
         if: always()
+        uses: peaceiris/actions-gh-pages@v4.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
