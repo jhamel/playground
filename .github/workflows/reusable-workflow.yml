@@ -12,10 +12,10 @@ jobs:
   before:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "before"
+      - run: printf "some long message\nwith newlines\n" > file.txt
 
   sample:
     runs-on: ubuntu-latest
     needs: before
     steps:
-      - run: echo "yoyo ${{ inputs.target }}"
+      - run: cat file.txt
