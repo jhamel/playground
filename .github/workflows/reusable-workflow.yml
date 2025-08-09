@@ -7,8 +7,15 @@ on:
         required: true
         type: string
 
+
 jobs:
+  before:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "before"
+
   sample:
     runs-on: ubuntu-latest
+    needs: before
     steps:
       - run: echo "yoyo ${{ inputs.target }}"
