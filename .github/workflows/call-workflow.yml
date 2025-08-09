@@ -1,0 +1,15 @@
+name: Call a reusable workflow
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  ReusableMatrixJobForDeployment:
+    strategy:
+      matrix:
+        target: [dev, stage, prod]
+    uses: jhamel/playground/reusable-workflow.yml@main
+    with:
+      target: ${{ matrix.target }}
