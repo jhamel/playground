@@ -1,10 +1,10 @@
 name: Call a reusable workflow now
 
 on:
+  workflow_dispatch:
   pull_request:
     branches:
       - main
-
 jobs:
   ReusableMatrixJobForDeployment:
     strategy:
