@@ -12,10 +12,10 @@ jobs:
   before:
     runs-on: ubuntu-latest
     steps:
-      - run: printf "some long message\nwith newlines\n" > file.txt
+      - run: printf "some long message\nwith newlines\n" > $HOME/file.txt
 
   sample:
     runs-on: ubuntu-latest
     needs: before
     steps:
-      - run: cat file.txt
+      - run: cat $HOME/file.txt
