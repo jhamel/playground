@@ -6,6 +6,9 @@ on:
       - main
 jobs:
   check-pr:
+    strategy:
+      matrix:
+        target: ["a","b","c"]
     runs-on: ubuntu-latest
     outputs:
       pr-number: ${{ steps.check-prs.outputs.PR_NUMBER }}
@@ -13,8 +16,7 @@ jobs:
       - name: Check PRs
         id: check-prs
         run: |
-          # ...
-          echo "PR_NUMBER=123" >> $GITHUB_OUTPUT
+          echo "PR_NUMBER=${{ matrix.target }}" >> $GITHUB_OUTPUT
 
   publish:
     needs: [check-pr]
