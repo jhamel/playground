@@ -23,4 +23,5 @@ jobs:
       PR_NUMBER: ${{ needs.check-pr.outputs.pr-number }}
     steps:
       - name: print
-        run: echo "$PR_NUMBER"
+        run: |
+          echo "abc: ${PR_NUMBER}"
