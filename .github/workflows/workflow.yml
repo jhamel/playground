@@ -14,7 +14,7 @@ jobs:
         id: job1
         run: |
           echo "${{ env.myVar }}"
-          echo "env.myVar=12345" >> "$GITHUB_ENV"
+          echo "myVar=12345" >> "$GITHUB_ENV"
 
   publish:
     needs: [check-pr]
