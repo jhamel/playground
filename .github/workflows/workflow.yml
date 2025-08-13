@@ -15,7 +15,7 @@ jobs:
 #        target: ["a","b","c"]
     steps:
       - id: set-output
-        run: echo "test=test123 >> "$GITHUB_OUTPUT"
+        run: echo "test=test123" >> "$GITHUB_OUTPUT"
        # run: echo "test=${{ matrix.target }}" >> "$GITHUB_OUTPUT"
   consumer:
     runs-on: ubuntu-latest
