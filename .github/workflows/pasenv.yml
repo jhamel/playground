@@ -19,7 +19,6 @@ jobs:
         run: |
           echo "$PR_NUMBER"
           echo "${{ steps.check-prs.outputs.PR_NUMBER }}"
-          echo "${{ outputs.PR_NUMBER }}"
           
           echo "PR_NUMBER=${{ env.PR_NUMBER }},${{ matrix.target }}" >> $GITHUB_OUTPUT
 
