@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set Variable
-        run: echo "WORKFLOW_VARIABLE=my_value" >> "$GITHUB_ENV" #this is workflow scoped
+        run: echo "env.WORKFLOW_VARIABLE=my_value" >> $GITHUB_ENV #this is workflow scoped
 
   job2:
     needs: job1
