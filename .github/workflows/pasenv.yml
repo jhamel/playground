@@ -11,6 +11,8 @@ jobs:
       matrix:
         target: ["a","b","c"]
     runs-on: ubuntu-latest
+    env:
+      PR_NUMBER: ${{ steps.check-pr.outputs.pr-number }}
     outputs:
       pr-number: ${{ steps.check-prs.outputs.PR_NUMBER }}
     steps:
