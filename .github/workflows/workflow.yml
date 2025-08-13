@@ -4,21 +4,22 @@ on:
   pull_request:
     branches:
       - main
-
+env:
+  WORKFLOW_VARIABLE: "value"
 jobs:
 
   job1:
     runs-on: ubuntu-latest
     steps:
       - name: Set Variable
-        run: echo "MY_VARIABLE=my_value" >> $GITHUB_ENV #this is workflow scoped
+        run: echo "WORKFLOW_VARIABLE=my_value" >> $GITHUB_ENV #this is workflow scoped
 
   job2:
     needs: job1
     runs-on: ubuntu-latest
     steps:
       - name: Use Variable
-        run: echo "${{ env.MY_VARIABLE }}"
+        run: echo "${{ env.WORKFLOW_VARIABLE }}"
 #  job1:
 #    runs-on: ubuntu-latest
 #    outputs:
