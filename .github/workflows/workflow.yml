@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Set Variable
         shell: bash
-        run: echo "OUT=yoyo" >> "$GITHUB_OUTPUT"
+        run: echo "env.WORKFLOW_VARIABLE=yoyo" >> "$GITHUB_ENV"
 
   job2:
     needs: job1
