@@ -13,8 +13,7 @@ jobs:
       - name: job1
         id: job1
         run: |
-          # ...
-          echo "myVar=12345" >> $GITHUB_env
+          echo "myVar=12345" >> "$GITHUB_ENV"
 
   publish:
     needs: [check-pr]
@@ -23,7 +22,6 @@ jobs:
       - name: job2
         id: job2
         run: |
-          # ...
           echo "${{ env.myVar}}"
 #  job1:
 #    runs-on: ubuntu-latest
