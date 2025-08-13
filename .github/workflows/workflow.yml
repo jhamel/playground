@@ -4,23 +4,27 @@ on:
   pull_request:
     branches:
       - main
+env:
+  myVar: "123"
 jobs:
   check-pr:
     runs-on: ubuntu-latest
-    outputs:
-      pr-number: ${{ steps.check-prs.outputs.PR_NUMBER }}
     steps:
-      - name: Check PRs
-        id: check-prs
+      - name: job1
+        id: job1
         run: |
           # ...
-          echo "PR_NUMBER=$pr_number" >> $GITHUB_OUTPUT
+          echo "myVar=12345" >> $GITHUB_env
 
   publish:
     needs: [check-pr]
     runs-on: ubuntu-latest
-    env:
-      PR_NUMBER: ${{ needs.check-pr.outputs.pr-number }}
+    steps:
+      - name: job2
+        id: job2
+        run: |
+          # ...
+          echo "${{ env.myVar}}"
 #  job1:
 #    runs-on: ubuntu-latest
 #    outputs:
