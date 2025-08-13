@@ -10,9 +10,9 @@ jobs:
     strategy:
       matrix:
         target: ["a","b","c"]
-    runs-on: ubuntu-latest
     env:
-      PR_NUMBER: ${{ steps.check-pr.outputs.pr-number }}
+      PR_NUMBER: ${{ needs.check-pr.outputs.pr-number }}
+    runs-on: ubuntu-latest
     outputs:
       pr-number: ${{ steps.check-prs.outputs.PR_NUMBER }}
     steps:
