@@ -26,7 +26,7 @@ jobs:
     steps:
       - name: Use Variable
         shell: bash
-        run: echo "${{ env.OUT }} "
+        run: echo "${{ env.WORKFLOW_VARIABLE }} "
 #  job1:
 #    runs-on: ubuntu-latest
 #    outputs:
