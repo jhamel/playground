@@ -10,16 +10,20 @@ jobs:
 
   job1:
     runs-on: ubuntu-latest
+    outputs:
+      OUT: ${{ steps.job1.OUT }}
     steps:
       - name: Set Variable
-        run: echo "env.WORKFLOW_VARIABLE=my_value" >> $GITHUB_ENV #this is workflow scoped
+        run:    echo "OUT=yoyo" >> "$GITHUB_OUTPUT"
 
   job2:
     needs: job1
     runs-on: ubuntu-latest
+    env:
+      OUT: ${{ needs.job1.outputs.OUT }}
     steps:
       - name: Use Variable
-        run: echo "${{ env.WORKFLOW_VARIABLE }}"
+        run: echo "${{ env.OUT }} "
 #  job1:
 #    runs-on: ubuntu-latest
 #    outputs:
