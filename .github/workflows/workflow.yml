@@ -2,31 +2,26 @@ name: workflow.yml
 on:
   workflow_dispatch:
   pull_request:
-    branches:
-      - main
+
 env:
   WORKFLOW_VARIABLE: "value"
 jobs:
-
-  job1:
+  check-pr:
     runs-on: ubuntu-latest
     outputs:
-      OUT: ${{ steps.job1.OUT }}
+      pr-number: ${{ steps.check-prs.outputs.PR_NUMBER }}
     steps:
-      - name: Set Variable
-        shell: bash
-        run: echo "env.WORKFLOW_VARIABLE=yoyo" >> "$GITHUB_ENV"
+      - name: Check PRs
+        id: check-prs
+        run: |
+          # ...
+          echo "PR_NUMBER=$pr_number" >> $GITHUB_OUTPUT
 
-  job2:
-    needs: job1
+  publish:
+    needs: [check-pr]
     runs-on: ubuntu-latest
-
     env:
-      OUT: ${{ needs.job1.outputs.OUT }}
-    steps:
-      - name: Use Variable
-        shell: bash
-        run: echo "${{ env.WORKFLOW_VARIABLE }} "
+      PR_NUMBER: ${{ needs.check-pr.outputs.pr-number }}
 #  job1:
 #    runs-on: ubuntu-latest
 #    outputs:
