@@ -9,7 +9,7 @@ jobs:
   matrixJob:
     runs-on: ubuntu-latest
     outputs:
-      outcome: ""
+      outcome: $
     strategy:
       matrix:
         target: ["a","b","c"]
@@ -23,6 +23,5 @@ jobs:
     steps:
       - env:
           OUTPUT: $
-
         run: echo "$OUTPUT"
 
