@@ -4,6 +4,7 @@ on:
   pull_request:
     branches:
       - main
+
 jobs:
   check-pr:
     strategy:
@@ -16,7 +17,7 @@ jobs:
       - name: Check PRs
         id: check-prs
         run: |
-          echo "PR_NUMBER=${{ steps.check-prs.outputs.PR_NUMBER }},${{ matrix.target }}" >> $GITHUB_OUTPUT
+          echo "PR_NUMBER=${{ env.PR_NUMBER }},${{ matrix.target }}" >> $GITHUB_OUTPUT
 
   publish:
     needs: [check-pr]

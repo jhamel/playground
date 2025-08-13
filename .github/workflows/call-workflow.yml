@@ -11,6 +11,6 @@ jobs:
     strategy:
       matrix:
         target: [dev, stage, prod]
-    uses: jhamel/playground/.github/workflows/reusable-workflow.yml@main
+    uses: jhamelj/playground/.github/workflows/reusable-workflow.yml@main
     with:
       target: ${{ matrix.target }}
