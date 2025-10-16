@@ -1,0 +1,5 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","28","testHelloWorld232()","","Thu Oct 16 15:22:51 GMT 2025","failed","Thu Oct 16 15:22:51 GMT 2025","","dev.jhamel.HelloWorld2Test","dev.jhamel.HelloWorld2Test","testHelloWorld232"
+"","2","testHelloWorld2()","","Thu Oct 16 15:22:51 GMT 2025","failed","Thu Oct 16 15:22:51 GMT 2025","","dev.jhamel.HelloWorldTest","dev.jhamel.HelloWorldTest","testHelloWorld2"
+"","2","testHelloWorld()","","Thu Oct 16 15:22:51 GMT 2025","failed","Thu Oct 16 15:22:51 GMT 2025","","dev.jhamel.HelloWorld2Test","dev.jhamel.HelloWorld2Test","testHelloWorld"
+"","2","testHelloWorld()","","Thu Oct 16 15:22:51 GMT 2025","passed","Thu Oct 16 15:22:51 GMT 2025","","dev.jhamel.HelloWorldTest","dev.jhamel.HelloWorldTest","testHelloWorld"
