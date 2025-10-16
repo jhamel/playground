@@ -12,4 +12,10 @@ public class Say {
     public void printName(){
         System.out.println(name().toUpperCase());
     }
+
+    public static void main(String[] args) {
+        Parent parent = new Parent();
+        Child child = new Child();
+        Parent p = (Parent) child;
+    }
 }
