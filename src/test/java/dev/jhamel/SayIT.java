@@ -19,5 +19,14 @@ public class SayIT {
         System.out.println("----->"+Locale.getDefault());
         System.out.println("----->"+Locale.getDefault());
     }
+    @Test
+    public void testSay3(){
+        Say say = new Say();
+        assertEquals(say.say(), "Hello World!");
+        System.out.println("----->"+Locale.getDefault());
+        System.out.println("----->"+Locale.getDefault());
+        System.out.println("----->"+Locale.getDefault());
+        System.out.println("----->"+Locale.getDefault());
+    }
 
 }
