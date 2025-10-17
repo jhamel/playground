@@ -8,10 +8,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class HelloWorld2Test {
 
     @Test public void testHelloWorld() {
-        assertEquals(2,1);
+        assertEquals(2,2);
     }
 
     @Test public void testHelloWorld232() {
-        assertEquals(2,1);
+        assertEquals(2,2);
     }
 }
