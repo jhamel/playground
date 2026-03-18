@@ -2,6 +2,9 @@ name: yo.yml
 on:
   workflow_dispatch:
 
+env:
+  myvar: 'hello'
+
 jobs:
   yo:
     runs-on: ubuntu-latest
@@ -10,4 +13,4 @@ jobs:
 
       - name: ls all
         shell: bash
-        run: ls -R .
+        run: echo $myvar
